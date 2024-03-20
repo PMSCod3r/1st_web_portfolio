@@ -1,0 +1,467 @@
+:root {
+	--w3_green: #04aa6d;
+	--w3_darker_green: #037c50;
+	--external_links: #bbccdd; 
+	--w3_navy: #15202b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: white;
+  background-color: var(--w3_navy);
+  padding: 0;
+  margin: 0;
+  font-family: arial, sans-serif;
+}
+
+
+/* TOP NAVBAR */
+.navbar {
+  width: 100%;
+  height: 4.4rem;
+  background: linear-gradient(
+    90deg,
+    var(--w3_darker_green),
+    var(--w3_green)
+  );
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem 0 0.5rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.navbar span {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-family: 'Permanent Marker', sans-serif;
+  line-height: 80%;
+}
+.nav-links {
+  display: none;
+  height: 100%;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  padding: 0 1.5rem 0 1.5rem; 
+  text-align: center;
+  line-height: 4.5rem;
+  height: 100%;
+}
+.nav-links a:hover {
+  background-color: var(--w3_darker_green);
+}
+
+
+/* BUTTON TO OPEN SIDENAV */
+.open-sidenav-button {
+  display: block;
+  position: relative;
+  z-index: 1000;
+  padding: 0.7rem;
+}
+.open-sidenav-button:hover {
+  cursor: pointer;
+  background-color: var(--w3_darker_green);
+}
+
+.bar1, .bar2, .bar3 {
+  width: 1.6rem;
+  height: 0.32rem;
+  background-color: white;
+  transition: 0.5s;
+}
+.bar1, .bar2 {
+  margin-bottom: 0.32rem;
+}
+.change .bar1 {
+  transform: translate(0, 0.64rem) rotate(-45deg);
+}
+.change .bar2 {
+  opacity: 0;
+}
+.change .bar3 {
+  transform: translate(0, -0.64rem) rotate(45deg);
+}
+
+
+/* SIDENAV */
+.sidenav {
+  width: 0;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  background-color: var(--w3_green);
+  padding-top: 4.4rem;
+  transition: 0.5s;
+}
+.sidenav a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.5rem 0.8rem;
+  margin: 0 1rem 1rem 1rem;
+  /* Prevents multi words link 
+     from breaking into a new line */
+  white-space: nowrap;
+}
+.sidenav a:hover {
+  background-color: var(--w3_darker_green);
+}
+
+
+/* WELCOME SECTION */      
+.welcome {
+  min-height: 100vh;
+  padding-top: 4.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+  align-items: center;
+}
+.flags {
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: rows;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+.flag {
+  width: 100%;
+  opacity: 0.1;
+}
+.welcome header {
+  padding: 0 2rem;
+  text-align: center;
+}
+.welcome header h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+.h1-1, .h1-2 {
+  white-space: nowrap;
+}
+.welcome header p {
+  font-size: 2rem;
+  font-style: italic;
+  font-family: 'Roboto', sans-serif;
+  color: var(--w3_green);
+  margin-top: 0;
+}
+.my-story {
+  padding: 0 2rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+.my-story p {
+  padding: 0;
+}
+.my-story-links {
+  color: var(--external_links);
+}
+
+
+/* PROJECTS SECTION */
+.projects {
+  min-height: 100vh;
+  padding-top: 4.4rem;
+  position: relative;
+  z-index: 0;
+}
+.projects-header h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 4rem;
+}
+.projects-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+.project {
+  height: 20rem;
+  background: white;
+  cursor: pointer;
+}
+.non-clickable-link {
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.placeholder {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+.placeholder p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5rem;
+  color: var(--w3_green);
+  text-align: center;
+}
+.project-tile {
+  background: linear-gradient(
+    90deg,
+    var(--w3_darker_green),
+    var(--w3_green)
+  );
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.4rem;
+  /* Necessary for the pseudo-element */
+  position: relative; 
+  overflow: hidden;
+}
+.project-tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--w3_darker_green),
+    var(--w3_darker_green)
+  );
+  transition: width 0.4s ease;
+  z-index: 1;
+}
+.project-tile p {
+  position: absolute;
+  z-index: 2;
+}
+
+.element-tag {
+  visibility: hidden;
+  color: var(--w3_navy);
+}
+.project:hover .project-tile::before {
+  width: 100%;
+}
+.project:hover .element-tag {
+  visibility: visible;
+}
+
+
+/* CONTACT SECTION*/
+.contact {
+  width: 100%;
+  height: calc(100vh - 5.4rem);
+  padding-top: 4.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 3rem;
+}
+.contact-header {
+  text-align: center;
+}
+.contact-header h2 {
+  font-size: 2.8rem;
+  margin-bottom: 0;
+}
+.contact-header p {
+  font-size: 1.48rem;
+  margin-top: 0;
+  font-style: italic;
+  font-family: 'Roboto', sans-serif;
+  color: var(--w3_green);
+}
+.contact-links {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.fa-brands, .fa-regular {
+  color: white;
+  font-size: 3rem;
+}
+.profile-link {
+  text-decoration: none;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.profile-link:hover {
+  background-color: var(--w3_darker_green);
+}
+
+
+/* FOOTER */
+.footer {
+  width: 100%;
+  height: 5.4rem;
+  border-top: 0.2rem solid var(--w3_green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer span {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+/* ------------ MEDIA RULES ------------*/
+
+/* MOBILE DEVICES */
+@media only screen and (max-width: 576px) {
+  .welcome header h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  .welcome header p {
+    font-size: 1.5rem;
+  }
+  .my-story p {
+    font-size: 1.05rem;
+    margin: 0.6rem;
+  }
+  h2 {
+    font-size: 2.1rem;
+  }
+  .projects h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .project {
+    width: 100%;
+  }
+  .footer {
+    flex-direction: column;
+  }
+  .footer span {
+    font-size: 1.125rem;
+  }
+}
+/* MOBILE DEVICES IN LANDSCAPE MODE */
+@media only screen and (max-height: 576px) and (orientation: landscape) {
+  .welcome header h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  .welcome header p {
+    font-size: 1.5rem;
+  }
+  .my-story p {
+    font-size: 1.05rem;
+    margin: 0.6rem;
+  }
+  h2 {
+    font-size: 2.1rem;
+  }
+  .projects h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .project {
+    width: 100%;
+  }
+  .contact {
+    row-gap: 0;
+  }
+  .contact-links {
+    gap: 0;
+    padding: 0;
+  }
+  .footer {
+    flex-direction: column;
+  }
+  .footer span {
+    font-size: 1.125rem;
+  }
+}
+
+/* TABLETS */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .project {
+    max-width: 50%;
+  }
+}
+
+/* SMALL LAPTOPS */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .project {
+    max-width: 40%;
+  }
+  .open-sidenav-button {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* DESKTOPS */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .project {
+    max-width: 30%;
+  }
+  .open-sidenav-button {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* LARGE DESKTOPS */
+@media only screen and (min-width: 1200px) {
+  .project {
+    max-width: 20%;
+  }
+  .open-sidenav-button {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } 
+}

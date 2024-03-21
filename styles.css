@@ -149,6 +149,8 @@ body {
 }
 .flag {
   width: 50%;
+  height: auto;
+  object-fit: contain;
   opacity: 0.1;
 }
 .welcome header {
